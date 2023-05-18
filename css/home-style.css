@@ -150,7 +150,7 @@ main .hero {
   color: #fff6eb;
 }
 
-/* Information sector */
+/* Info section in home page*/
 
 .info-panel {
   width: 100%;
@@ -263,7 +263,7 @@ main .hero {
   color: var(--brand-color-700);
 }
 
-/* Donation options */
+/* Donation options in home page */
 
 .help-options {
   width: 100%;
@@ -313,7 +313,7 @@ main .hero {
   color: var(--sec-color-700);
 }
 
-/* Pets showcase (near to you) */
+/* Pets showcase (near to you) in home page*/
 
 .pets-showcase {
   width: 100%;
@@ -372,7 +372,7 @@ main .hero {
   color: #faf7dc;
 }
 
-/* doubts panel */
+/* doubts panel in home page*/
 
 .doubts-panel {
   width: 100%;
@@ -444,7 +444,7 @@ main .hero {
   font-weight: 400;
   font-size: 10px;
   line-height: 7px;
-  color: #fff6eb;
+  color: var(--background);
 }
 
 .footer__social-media {
@@ -454,6 +454,254 @@ main .hero {
 
 .footer__social-media img {
   width: 36px;
+}
+
+/* Style for searcher.html ________________ */
+
+.searcher-page__body {
+  padding: 24px 16px;
+  font-family: var(--texts-font);
+  background-color: var(--background);
+}
+.pet-searcher {
+  display: flex;
+  flex-direction: column;
+}
+
+section .searcher-page__title {
+  font-family: var(--titles-font);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--brand-color-600);
+}
+
+#specie-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+}
+
+#specie-legend {
+  display: none;
+}
+#specie-container {
+  margin-bottom: 8px;
+}
+
+#specie-container input {
+  display: none;
+}
+
+#specie-div {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  gap: 16px;
+}
+
+.cat-specie {
+  display: inline-block;
+  width: 70px;
+  height: 72px;
+  background-image: url(../img/cat-specie.svg);
+  background-size: cover;
+}
+
+.dog-specie {
+  display: inline-block;
+  width: 70px;
+  height: 72px;
+  background-image: url(../img/dog-specie.svg);
+  background-size: cover;
+}
+
+#dog-specie:checked ~ .dog-specie {
+  background-image: url(../img/dog-specie-posi.svg);
+}
+
+#cat-specie:checked ~ .cat-specie {
+  background-image: url(../img/cat-specie-posi.svg);
+}
+
+.pet-searcher__field {
+  background-color: var(--brand-color-200);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+  gap: 16px;
+}
+
+.pet-searcher__field legend {
+  font-family: var(--texts-font);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 24px;
+
+  color: var(--brand-color-600);
+}
+
+.pet-searcher__field--button div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pet-searcher__field--button div input {
+  display: none;
+}
+
+.pet-searcher__field--button div span {
+  display: inline-block;
+  background-color: #f3f3f3;
+  color: #bfbfbf;
+  border-radius: 8px;
+  padding: 8px;
+
+  font-family: var(--texts-font);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 24px;
+}
+
+#male-pet:checked ~ .male-pet,
+#female-pet:checked ~ .female-pet {
+  background-color: var(--grey-color-500);
+  color: var(--white);
+}
+/* checkmarks and check fields */
+.pet-searcher__field div .checkfield {
+  display: flex;
+  flex-direction: row;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--grey-color-500);
+  background-color: var(--white);
+  align-items: center;
+  justify-content: center;
+}
+
+.check-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 370px;
+  gap: 40px;
+  align-self: center;
+}
+
+.check-container div {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: top;
+}
+
+.check-container div .check-text {
+  display: inline-block;
+  margin-top: 4px;
+
+  font-family: var(--texts-font);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 19px;
+  color: var(--grey-color-500);
+}
+
+.checkfield input {
+  display: none;
+}
+
+.checkfield .checkmark {
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  background-color: var(--brand-color-500);
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkfield input:checked + .checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* special gap for age field */
+#age-field {
+  gap: 32px;
+}
+
+/* buttons and final phrase */
+
+.emo-phrase {
+  font-family: var(--titles-font);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 0 16px;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
+  background: var(--brand-color-500);
+  border-radius: 8px;
+
+  font-family: var(--titles-font);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 24px;
+  flex: 1;
+
+  color: var(--white);
+
+  border: none;
+}
+
+/* here there is a problem because is including the border in one button, it cause that the buttons dont have the same size */
+.search-button--secondary {
+  background: var(--white);
+  border: 2px solid var(--brand-color-500);
+  border-radius: 8px;
+  color: var(--brand-color-500);
+  box-sizing: border-box;
 }
 
 /* Style for: location-results.html ________________ */

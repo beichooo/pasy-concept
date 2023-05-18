@@ -4,17 +4,17 @@
   box-sizing: border-box;
 }
 
-body {
+.searcher-page__body {
   padding: 24px 16px;
   font-family: "Fredoka";
   background-color: #fff6eb;
 }
-form {
+.pet-searcher {
   display: flex;
   flex-direction: column;
 }
 
-h1 {
+section .searcher-page__title {
   font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
@@ -72,11 +72,11 @@ h1 {
   background-size: cover;
 }
 
-input#dog-specie:checked ~ .dog-specie {
+input #dog-specie:checked ~ .dog-specie {
   background-image: url(../img/dog-specie-posi.svg);
 }
 
-input#cat-specie:checked ~ .cat-specie {
+input #cat-specie:checked ~ .cat-specie {
   background-image: url(../img/cat-specie-posi.svg);
 }
 
