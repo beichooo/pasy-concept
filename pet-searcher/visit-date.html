@@ -14,9 +14,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
+    <script src="../js/visit-date-script.js" defer></script>
 </head>
 
 <body>
+    <!-- <header>
+        <nav class="nav-bar">
+            <span class="nav-bar__logo">PASY</span>
+            <div class="nav-bar__btns">
+                <button class="nav-bar__donate-btn">
+                    Donar
+                    <img src="../img\green-heart__nav-bar-icon.svg" alt="green heart" />
+                </button>
+                <img class="nav-bar__menu-icon" src="../img\burguer-menu__nav-bar-icon.svg" alt="burguer menu icon" />
+            </div>
+        </nav>
+    </header> -->
+
     <main>
         <section class="visit-info-container">
             <article class="visit-info-title">
@@ -48,11 +62,11 @@
                 </div>
 
                 <div class="shelter-location__links">
-                    <div>
+                    <div id="googleMapsBtn">
                         <img src="../img/google-maps-icon__visit-date.svg" alt="google maps icon">
                         <span>en Google Maps</span>
                     </div>
-                    <div>
+                    <div id="whatsAppBtn">
                         <img src="../img/wp-icon__visit-date.svg" alt="google maps icon">
                         <span>en WhatsApp</span>
                     </div>
@@ -71,7 +85,7 @@
                 <button>la siguiente</button>
             </div>
             <div class="results__cta">
-                <button>Confirmar visita</button>
+                <button id="confirmVisit">Confirmar visita</button>
             </div>
         </section>
 

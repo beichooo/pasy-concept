@@ -50,6 +50,7 @@ header {
 }
 
 .nav-bar__logo {
+  display: inline-block;
   font-family: var(--texts-font);
   font-style: normal;
   font-weight: 600;
