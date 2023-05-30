@@ -6,9 +6,9 @@ const logoNavbar = document.getElementsByClassName("nav-bar__logo");
 
 //searchButtonSearchPage[1].addEventListener("click", (event) => {
 //  event.preventDefault();
-//  window.location.href = "../pet-searcher/result-list.html";
+//  window.location.href = "../pet-searcher/result-list.php";
 //});
 
-//logoNavbar[0].addEventListener("click", () => {
-//  window.location.href = "../index.html";
-//});
+logoNavbar[0].addEventListener("click", () => {
+  window.location.href = "../index.html";
+});
