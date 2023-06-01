@@ -56,10 +56,24 @@ $query->execute();
     <script src="../js/result-list-script.js" defer> </script>
 </head>
 
-<body class="results-list">
+<body >
+    <header>
+        <nav class="nav-bar">
+            <span class="nav-bar__logo">PASY</span>
+            <div class="nav-bar__btns">
+                <button class="nav-bar__donate-btn">
+                    Donar
+                    <img src="../img\green-heart__nav-bar-icon.svg" alt="green heart" />
+                </button>
+                <img class="nav-bar__menu-icon" src="../img\burguer-menu__nav-bar-icon.svg" alt="burguer menu icon" />
+            </div>
+        </nav>
+    </header>
+
+    <main class="results-list">
 
     <h1 class="results__title">Lista de resultados</h1>
-
+    
     <section class="results__parameters">
         <span>para:</span>
         <div>
@@ -69,7 +83,7 @@ $query->execute();
             <span><?php echo $age ?></span>
         </div>
     </section>
-
+    
     <section class="pet-list" id="resultsContainer">
         <?php
         // Mostrar los resultados
@@ -77,7 +91,7 @@ $query->execute();
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 echo    '<article class="pet-list__item">';
                 echo        '<div>';
-                echo            '<img src="../bd_img/'.$row['photo'].'" alt="mascota posando">';
+                echo            '<img class="pet-thumbnail" src="../bd_img/'.$row['photo'].'" alt="mascota posando">';
                 echo                '<div>';
                 echo                '<p>'. $row['name'].'</p>';
                 echo                '<span>'.$row['address'].'</span>';
@@ -89,15 +103,16 @@ $query->execute();
         } else {
             echo 'No se encontraron resultados.';
         }
-
+        
         // Cerrar la conexión a la base de datos
         $pdo = null;
         ?>
 
-        <div class="results__cta">
+            <div class="results__cta">
             <button class="results__cta--secondary">
                 Volver a buscar</button>
-        </div>
-</body>
-
-</html>
+            </div>
+        </main>
+        </body>
+        
+        </html>
