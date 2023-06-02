@@ -56,7 +56,7 @@ $query->execute();
     <script src="../js/result-list-script.js" defer> </script>
 </head>
 
-<body >
+<body>
     <header>
         <nav class="nav-bar">
             <span class="nav-bar__logo">PASY</span>
@@ -70,49 +70,49 @@ $query->execute();
         </nav>
     </header>
 
-<main class="results-list">
-    
-    <h1 class="results__title">Lista de resultados</h1>
+    <main class="results-list">
 
-    <section class="results__parameters">
-        <span>para:</span>
-        <div>
-            <span><?php echo $specie ?></span>
-            <span><?php echo $gender ?></span>
-            <span><?php echo $size ?></span>
-            <span><?php echo $age ?></span>
-        </div>
-    </section>
+        <h1 class="results__title">Lista de resultados</h1>
 
-    <section class="pet-list" id="resultsContainer">
-        <?php
-        // Mostrar los resultados
-        if ($query->rowCount() > 0) {
-            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                echo    '<article class="pet-list__item">';
-                echo        '<div>';
-                echo            '<img class = "pet-list__thumbnail" src="../bd_img/'.$row['photo'].'" alt="mascota posando">';
-                echo                '<div>';
-                echo                '<p>'. $row['name'].'</p>';
-                echo                '<span>'.$row['address'].'</span>';
-                echo                '</div>';
-                echo        '</div>';
-                echo        '<button>Ver más</button>';
-                echo    '</article>';
+        <section class="results__parameters">
+            <span>para:</span>
+            <div>
+                <span><?php echo $specie ?></span>
+                <span><?php echo $gender ?></span>
+                <span><?php echo $size ?></span>
+                <span><?php echo $age ?></span>
+            </div>
+        </section>
+
+        <section class="pet-list" id="resultsContainer">
+            <?php
+            // Mostrar los resultados
+            if ($query->rowCount() > 0) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    echo    '<article class="pet-list__item">';
+                    echo        '<div>';
+                    echo            '<img class = "pet-list__thumbnail" src="../bd_img/' . $row['photo'] . '" alt="mascota posando">';
+                    echo                '<div>';
+                    echo                '<p>' . $row['name'] . '</p>';
+                    echo                '<span>' . $row['address'] . '</span>';
+                    echo                '</div>';
+                    echo        '</div>';
+                    echo        '<button>Ver más</button>';
+                    echo    '</article>';
+                }
+            } else {
+                echo 'No se encontraron resultados.';
             }
-        } else {
-            echo 'No se encontraron resultados.';
-        }
 
-        // Cerrar la conexión a la base de datos
-        $pdo = null;
-        ?>
+            // Cerrar la conexión a la base de datos
+            $pdo = null;
+            ?>
 
-        <div class="results__cta">
-            <button class="results__cta--secondary">
-                Volver a buscar</button>
-        </div>
-        </main>
+            <div class="results__cta">
+                <button class="results__cta--secondary">
+                    Volver a buscar</button>
+            </div>
+    </main>
 </body>
 
 </html>
