@@ -854,6 +854,11 @@ section .searcher-page__title {
   display: flex;
 }
 
+.pet-list__thumbnail {
+  max-width: 80px;
+  border-radius: 8px;
+}
+
 .pet-list__item div div {
   margin-left: 16px;
   display: flex;
