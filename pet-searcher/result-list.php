@@ -72,7 +72,7 @@ $query->execute();
 
     <main class="results-list">
 
-        <h1 class="results__title">Lista de resultados</h1>
+        <h1 class="results__title">Lista de resultados Cambio</h1>
 
         <section class="results__parameters">
             <span>para:</span>
