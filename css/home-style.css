@@ -95,6 +95,7 @@ header {
 main .hero {
   background-image: url("../img/dog-photo__hero-section.png");
   background-size: cover;
+  background-position: top;
   object-fit: cover;
   width: 100%;
   min-height: 520px;
@@ -162,6 +163,11 @@ main .hero {
   object-fit: cover;
   min-height: 567px;
   border-radius: 0 0 20px 20px;
+}
+
+.info-panel__container {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .info-panel__title {
@@ -268,6 +274,8 @@ main .hero {
 
 .help-options {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   padding: 0 16px;
   padding-top: 24px;
 }
@@ -318,6 +326,8 @@ main .hero {
 
 .pets-showcase {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   padding: 24px 16px;
 }
 
@@ -377,6 +387,8 @@ main .hero {
 
 .doubts-panel {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   padding: 0 16px;
   gap: 8px;
 }
@@ -467,6 +479,8 @@ main .hero {
 .pet-searcher {
   display: flex;
   flex-direction: column;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 section .searcher-page__title {
@@ -1433,4 +1447,13 @@ div:has(.donate-cta) {
   justify-content: center;
 
   color: var(--grey-color-500);
+}
+
+@media (min-width: 500px) {
+  main .hero {
+    background-image: url("/img/dog-photo__hero-section-large.svg");
+  }
+  .info-panel {
+    background-image: url("/img/paws-background__info-panel-large.svg");
+  }
 }
