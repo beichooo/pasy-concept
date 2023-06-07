@@ -24,16 +24,27 @@ if (isset($_POST)) {
 
     if ($age == "1-2-year") {
         $age = "1 a 2 años";
+        $age_min = 1;
+        $age_max = 2;
     } elseif ($age == "less-1-year") {
         $age = "Menos de 1 año";
+        $age_min = 0;
+        $age_max = 0;
     } elseif ($age == "3-4-year") {
         $age = "3 a 4 años";
+        $age_min = 3;
+        $age_max = 4;
     } else {
         $age = "5 años o más";
+        $age_min = 5;
+        $age_max = 30;
     }
 }
 require "../conexion.php";
-$sql = "SELECT * FROM mascotas WHERE gender='$gender' AND size='$size' ORDER BY id DESC";
+$sql = "SELECT *
+FROM mascotas
+WHERE gender = '$gender' AND size = '$size' AND '$age_min' <= age_years AND age_years <= '$age_max' 
+ORDER BY id DESC;";
 $query = $pdo->prepare($sql);
 $query->execute();
 
@@ -90,14 +101,23 @@ $query->execute();
             if ($query->rowCount() > 0) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     echo    '<article class="pet-list__item">';
+                    echo     '<form action="pet-profile.php" method="POST">';
                     echo        '<div>';
                     echo            '<img class = "pet-list__thumbnail" src="../bd_img/' . $row['photo'] . '" alt="mascota posando">';
                     echo                '<div>';
                     echo                '<p>' . $row['name'] . '</p>';
-                    echo                '<span>' . $row['address'] . '</span>';
+                    echo                '<span>' . $row['pet_shelter'] . '</span>';
                     echo                '</div>';
                     echo        '</div>';
-                    echo        '<button>Ver más</button>';
+                    //form
+                    echo        '<input type="text" name="name" value="'.$row['name'].'">';
+                    echo        '<input type="text" name="specie" value="'.$specie.'">';
+                    echo        '<input type="text" name="gender" value="'.$gender.'">';
+                    echo        '<input type="text" name="age" value="'.$age.'">';
+                    echo        '<input type="text" name="size" value="'.$size.'">';
+                    echo        '<button type="submit">Ver más</button>';
+                    // cierro form
+                    echo        ' </form>';
                     echo    '</article>';
                 }
             } else {

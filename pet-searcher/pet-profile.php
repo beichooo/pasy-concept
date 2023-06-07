@@ -1,3 +1,28 @@
+<?php
+if (isset($_POST)) {
+    $name = $_POST['name'];
+    $specie = $_POST['specie'];
+    $gender = $_POST['gender'];
+    $age = $_POST['age'];
+    $size = $_POST['size'];
+}
+require "../conexion.php";
+$sql = "SELECT *
+FROM mascotas
+WHERE name = '$name' 
+ORDER BY id DESC;";
+$query = $pdo->prepare($sql);
+$query->execute();
+$row = $query->fetch(PDO::FETCH_ASSOC);
+$address = $row['pet_shelter'];
+$sql2 = "SELECT *
+FROM pet_shelter
+WHERE name_petShelter = '$address' 
+ORDER BY id DESC;";
+$query = $pdo->prepare($sql2);
+$query->execute();
+$row2 = $query->fetch(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,16 +58,16 @@
     <main class="pet-profile-body">
         <section class="pet-profile">
             <article class="pet-profile__carousel">
-                <img src="../img/pet-photo__pet-showcase.png" alt="carrusel de fotografias de la mascota">
-                <h1>Filomenog</h1>
+                <img src="../bd_img/<?php echo $row['photo'] ?>" alt="carrusel de fotografias de la mascota">
+                <h1><?php echo $name ?></h1>
             </article>
 
             <article class="results__parameters">
                 <div>
-                    <span>Perro</span>
-                    <span>Macho</span>
-                    <span>Mediano</span>
-                    <span>1 a 2 años</span>
+                <span><?php echo $specie ?></span>
+                <span><?php echo $gender ?></span>
+                <span><?php echo $size ?></span>
+                <span><?php echo $age ?></span>
                 </div>
             </article>
 
@@ -60,46 +85,38 @@
                 <div>
                     <img src="../img/location-status__pet-profile.svg" alt="icono de casita">
                     <div>
-                        <span>Albergue Patitas</span>
-                        <span>en Villa Adela, El Alto</span>
+                        <span><?php echo $row['pet_shelter'] ?></span>
+                        <span>en <?php echo $row2['address'] ?></span>
                     </div>
                 </div>
             </article>
+            <form action = "visit-thanks.php" method="POST">
+            <!--input -->
             <div class="results__cta">
-                <button>Quiero visitarlo</button>
+                <input type="text" name="pet-shelter" value="<?php echo $row['pet_shelter'] ?>">
+                <input type="text" name="pet-name" value="<?php echo $row['name'] ?>">
+                <button type="submit">Quiero visitarlo</button>
             </div>
+            </form>
+            <!-- form action = "visit-thanks.php" method-->
         </section>
 
         <section class="more-info-pet">
             <h2 class="more-info-pet__title">Más información</h2>
             <p>
-                Filogmeno fue encontrado en un basural, le di un trozo de pan pero otros perros más grandes se lo
-                quitaron,
-                eso me dio pena y decidí llevarlo a mi casa, el aún era pequeno así que lo bautice con ese nombre, el
-                era
-                “Pequeño”. El era muy extraño, le agradaba la gente pero no otros perros.
+                <?php echo $row['history'] ?>
             </p>
             <h3 class="more-info-pet__tag"><span><img src="../img/amigable_mood-tag__pet-profile.svg"
                         alt="amigable"></span>
             </h3>
             <p>
-                Es muy amigable y cariñoso con las personas, le gusta jugar y acompañarte cuando estas sentado, de
-                alguna
-                forma creo que sabe como te sientes y trata de animarte, es un ejemplo de que no todo es bueno y no todo
-                es
-                malo. Pero para mí el siempre era honesto con lo que quiere, siempre.
+                <?php echo $row['description'] ?>
             </p>
 
             <h3 class="more-info-pet__tag"><span><img src="../img/en-tratamiento_health-tag__pet-profile.svg"
                         alt="en tratamiento"></span></h3>
             <p>
-                El necesita una castración debido a su personalidad tan fuerte, se recomienda esto para que no se
-                comporte
-                agresivo con otros perros, aparte de eso no necesita nada más, es muy saludable.
-
-                El necesita una castración debido a su personalidad tan fuerte, se recomienda esto para que no se
-                comporte
-                agresivo con otros perros, aparte de eso no necesita nada más, es muy saludable.
+                <?php echo $row['care'] ?>
             </p>
             <div>
                 <button class="donate-cta" id="donateToPet">Donar a la mascota</button>
@@ -108,17 +125,9 @@
         </section>
 
         <section class="shelter-info">
-            <h2>Albergue Patitas</h2>
+            <h2><?php echo $row['pet_shelter'] ?></h2>
             <p>
-                Es un albergue fundado el año 2002 y que para el año 2023 tiene alrededor de 50 mascotas rescatadas, con
-                sus
-                casi 20 voluntarios y las donaciones se logra dar atención médica y comida a las mascotas.
-
-                Lo puedes visitar en su dirección: El Alto, Av. Buenos Aires Calle Jaimes Freyre # 3186, justo frente a
-                la
-                estacion de bomberos Primero de Mayo. Puedes tomar un minibus de la San Francisco que diga “Junin” o sea
-                de
-                la linea “321”.
+                <?php echo $row2['description'] ?>
             </p>
             <div>
                 <button class="donate-cta" id="donateToShelter">Donar al Albergue</button>

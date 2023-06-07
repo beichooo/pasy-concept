@@ -1,3 +1,25 @@
+<?php
+if (isset($_POST)) {
+    $name = $_POST['pet-name'];
+    $pet_shelter = $_POST['pet-shelter'];
+}
+require "../conexion.php";
+$sql = "SELECT *
+FROM mascotas
+WHERE name = '$name' 
+ORDER BY id DESC;";
+$query = $pdo->prepare($sql);
+$query->execute();
+$row = $query->fetch(PDO::FETCH_ASSOC);
+$address = $row['pet_shelter'];
+$sql2 = "SELECT *
+FROM pet_shelter
+WHERE name_petShelter = '$address' 
+ORDER BY id DESC;";
+$query = $pdo->prepare($sql2);
+$query->execute();
+$row2 = $query->fetch(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,8 +43,8 @@
     <section class="visit-thanks-container">
         <article class="thanks">
             <h1>GRACIAS!!!</h1>
-            <p>Te esperamos este <span> <br> 13 y 14 de septiembre</span></p>
-            <img src="../img/pet-photo__pet-showcase.png" alt="mascota posando">
+            <p> <?php echo $row['name'] ?> <span> <br>te espera</span></p>
+            <img src="../bd_img/<?php echo $row['photo'] ?>" alt="mascota posando">
         </article>
 
         <article class="doubts-thanks">
