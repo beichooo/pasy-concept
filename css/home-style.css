@@ -95,6 +95,7 @@ header {
 main .hero {
   background-image: url("../img/dog-photo__hero-section.png");
   background-size: cover;
+  background-position: top;
   object-fit: cover;
   width: 100%;
   min-height: 520px;
@@ -162,6 +163,11 @@ main .hero {
   object-fit: cover;
   min-height: 567px;
   border-radius: 0 0 20px 20px;
+}
+
+.info-panel__container {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .info-panel__title {
@@ -268,6 +274,8 @@ main .hero {
 
 .help-options {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   padding: 0 16px;
   padding-top: 24px;
 }
@@ -318,6 +326,8 @@ main .hero {
 
 .pets-showcase {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   padding: 24px 16px;
 }
 
@@ -377,6 +387,8 @@ main .hero {
 
 .doubts-panel {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   padding: 0 16px;
   gap: 8px;
 }
@@ -467,6 +479,8 @@ main .hero {
 .pet-searcher {
   display: flex;
   flex-direction: column;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 section .searcher-page__title {
@@ -850,6 +864,17 @@ section .searcher-page__title {
   background-color: var(--white);
   border-radius: 8px;
 }
+
+.pet-list__form {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .pet-list__item div {
   display: flex;
 }
@@ -891,6 +916,10 @@ section .searcher-page__title {
   align-items: center;
 
   color: var(--grey-color-400);
+}
+
+.pet-list__input {
+  display: none;
 }
 
 .pet-list__item button {
@@ -935,8 +964,10 @@ section .searcher-page__title {
 
 .pet-profile__carousel img {
   width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
   border-radius: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .pet-profile__carousel h1 {
@@ -950,7 +981,7 @@ section .searcher-page__title {
   text-align: center;
 
   color: var(--grey-color-500);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .pet-profile__status-box {
@@ -976,6 +1007,64 @@ section .searcher-page__title {
   gap: 8px;
 }
 
+.pet-profile__health-tag {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-family: var(--titles-font);
+  font-weight: 500;
+  color: var(--white);
+  background-color: #12aa61;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+span.pet-profile__health-tag[health-pet-tag="healthy"] {
+  background-color: #6aaf04;
+}
+
+span.pet-profile__health-tag[health-pet-tag="sick"] {
+  background-color: #f1421b;
+}
+
+span.pet-profile__health-tag[health-pet-tag="treatment"] {
+  background-color: #f19c1b;
+}
+
+.pet-profile__mood-tag {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-family: var(--titles-font);
+  font-weight: 500;
+  color: var(--white);
+  background-color: #12aa61;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+span.pet-profile__mood-tag[mood-pet-tag="friendly"] {
+  background-color: #56c201;
+}
+
+span.pet-profile__mood-tag[mood-pet-tag="shy"] {
+  background-color: #6f42f0;
+}
+
+span.pet-profile__mood-tag[mood-pet-tag="playful"] {
+  background-color: #ff7700;
+}
+
+span.pet-profile__mood-tag[mood-pet-tag="calm"] {
+  background-color: #546f96;
+}
+
+span.pet-profile__mood-tag[mood-pet-tag="independent"] {
+  background-color: #824c2d;
+}
+
+span.pet-profile__mood-tag[mood-pet-tag="warning"] {
+  background-color: black;
+}
+
 .pet-profile__status-box div div {
   display: flex;
   flex-direction: column;
@@ -997,6 +1086,10 @@ section .searcher-page__title {
   font-weight: 300;
   font-size: 1.4rem;
   color: var(--grey-color-400);
+}
+
+.pet-profile__input {
+  display: none;
 }
 
 .more-info-pet {
@@ -1089,7 +1182,7 @@ div:has(.donate-cta) {
 .visit-info-container {
   display: flex;
   flex-direction: column;
-  padding: 16px 32px;
+  padding: 16px 16px;
   align-content: center;
 }
 
@@ -1104,12 +1197,15 @@ div:has(.donate-cta) {
 .visit-info-title p {
   font-family: var(--titles-font);
   font-style: normal;
-  font-weight: 400;
-  font-size: 2.4rem;
-  line-height: 28px;
+  font-weight: 500;
+  font-size: 3.2rem;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
   text-align: center;
-  color: var(--grey-color-400);
-  margin-top: 16px;
+  align-self: center;
+  color: var(--brand-color-600);
+  margin-bottom: 24px;
 }
 .visit-info-title img {
   align-self: center;
@@ -1118,11 +1214,11 @@ div:has(.donate-cta) {
 }
 
 .available-dates {
-  margin: 8px auto 16px auto;
+  margin: 32px auto 32px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 }
 
 .shelter-location {
@@ -1142,6 +1238,8 @@ div:has(.donate-cta) {
   padding: 8px 16px;
   gap: 16px;
   width: 100%;
+  min-height: 112px;
+  align-items: center;
 }
 
 .shelter-location__address div p:nth-child(1) {
@@ -1160,8 +1258,21 @@ div:has(.donate-cta) {
   line-height: 24px;
   color: var(--white);
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 15px;
+  margin-top: 4px;
+}
+
+.shelter-location__promo {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-self: flex-start;
+  color: var(--grey-color-600);
+  margin-top: 16px;
 }
 
 .shelter-location .shelter-location__links {
@@ -1185,16 +1296,17 @@ div:has(.donate-cta) {
 }
 
 .shelter-location .shelter-location__links img {
-  max-width: 30px;
+  min-width: 41px;
 }
 
 .shelter-location .shelter-location__links span {
   font-family: var(--texts-font);
   font-style: normal;
-  font-weight: 400;
-  font-size: 1.2rem;
+  font-weight: 500;
+  font-size: 1.6rem;
   line-height: 15px;
   color: var(--grey-color-500);
+  text-align: center;
 }
 
 .go-visit {
@@ -1270,24 +1382,38 @@ div:has(.donate-cta) {
 /* Style for: visit-advices.html */
 
 .visit-advices {
+  width: 70%;
+  max-width: 500px;
+  margin: 0 auto;
   padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--white);
+  border: dashed 4px var(--brand-color-700);
+  border-radius: 16px;
+
+  position: absolute;
+  left: 20%;
+  top: 40%;
+}
+
+#advices-pop-up {
+  display: none;
 }
 
 .visit-advices__title {
   font-family: var(--titles-font);
   font-style: normal;
   font-weight: 600;
-  font-size: 3.2rem;
-  line-height: 38px;
+  font-size: 2.4rem;
+  line-height: 30px;
   display: flex;
   align-items: center;
   text-align: center;
 
-  margin-top: 56px;
-  margin-bottom: 48px;
+  margin-top: 8px;
+  margin-bottom: 24px;
 
   color: var(--brand-color-600);
 }
@@ -1295,8 +1421,8 @@ div:has(.donate-cta) {
 .visit-advices__text {
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  margin-bottom: 48px;
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
 .visit-advices__text div {
@@ -1317,7 +1443,7 @@ div:has(.donate-cta) {
   color: var(--grey-color-600);
 }
 .visit-advices__text p span {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .visit-advices__phrase {
@@ -1372,19 +1498,15 @@ div:has(.donate-cta) {
 
 .thanks p {
   font-family: var(--texts-font);
-  font-style: normal;
+  font-style: italic;
   font-weight: 300;
-  font-size: 3.2rem;
+  font-size: 4rem;
   line-height: 60px;
 
   color: #b26404;
   color: var(--brand-color-600);
   text-align: center;
-  margin-bottom: 32px;
-}
-
-.thanks p span {
-  font-weight: 400;
+  margin-bottom: 16px;
 }
 
 .thanks img {
@@ -1394,32 +1516,45 @@ div:has(.donate-cta) {
   border-radius: 16px;
 }
 
-.doubts-thanks {
+.tools-visit__indication {
+  font-size: 1.6rem;
+  color: var(--brand-color-700);
+  font-family: var(--texts-font);
+  margin-bottom: 8px;
+}
+
+.tools-visit {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 48px;
+  gap: 16px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.doubts-thanks span {
+.tools-visit a {
+  text-decoration: none;
+}
+
+.tools-visit__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 8px 16px;
+  gap: 16px;
+
+  background: #ffffff;
+  border: 2px solid #b26404;
+  border-radius: 16px;
+
   font-family: var(--texts-font);
   font-style: normal;
-  font-weight: 400;
-  font-size: 1.2rem;
-  line-height: 15px;
-  color: var(--brand-color-700);
-}
-
-.doubts-thanks button {
-  background-color: var(--brand-color-800);
-  color: var(--white);
-  border: none;
-  padding: 4px 8px;
-  border-radius: 8px;
-  min-width: 148px;
-  font-family: var(--texts-font);
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 29px;
+  color: var(--grey-color-500);
 }
 
 #thanks-btn-phrase {
@@ -1433,4 +1568,26 @@ div:has(.donate-cta) {
   justify-content: center;
 
   color: var(--grey-color-500);
+  margin-top: 24px;
+}
+
+#visitThanksHome {
+  width: 140px;
+  height: 32px;
+  background: var(--white);
+  border: 1px solid #d37e17;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  align-self: center;
+  margin-top: 8px;
+  font-weight: 300;
+}
+
+@media (min-width: 500px) {
+  main .hero {
+    background-image: url("../img/dog-photo__hero-section-large.svg");
+  }
+  .info-panel {
+    background-image: url("../img/paws-background__info-panel-large.svg");
+  }
 }

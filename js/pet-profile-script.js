@@ -1,53 +1,32 @@
 console.log("hello pet profile");
 
-const wantVisit = document.querySelector(".results__cta");
 const logoNavbar = document.getElementsByClassName("nav-bar__logo");
 const donateToPetBtn = document.querySelector("#donateToPet");
 const donateToShelterBtn = document.querySelector("#donateToShelter");
+// const AdvicesPopUp = document.querySelector("#advices-pop-up");
+// const BtnAdvicesPopUp = document.querySelector("#advices-pop-up-btn");
 
 logoNavbar[0].addEventListener("click", () => {
   window.location.href = "../index.html";
 });
 
-wantVisit.addEventListener("click", () => {
-  window.location.href = "../pet-searcher/visit-date.html";
-});
+// BtnAdvicesPopUp.addEventListener("click", function (event) {
+//   // Show the notification
+//   AdvicesPopUp.style.display = "block";
+//   event.preventDefault();
+
+//   // Set a timeout to hide the notification after 5 seconds
+//   setTimeout(function () {
+//     AdvicesPopUp.style.display = "none";
+//     // Execute the default behavior of the button (e.g., submit a form)
+//     BtnAdvicesPopUp.click();
+//   }, 4000);
+// });
+
+// BtnAdvicesPopUp.addEventListener("click", () => {
+//   window.location.href = "../pet-searcher/visit-date.php";
+// });
 
 donateToPetBtn.addEventListener("click", () => alert("in progress"));
 
 donateToShelterBtn.addEventListener("click", () => alert("in progress"));
-
-async function fetchData() {
-  try {
-    const response = await fetch("search.php");
-    const data = await response.json();
-
-    const resultsContainer = document.getElementById("resultsContainer");
-    resultsContainer.innerHTML = ""; // Clear the container before injecting new content
-
-    data.forEach((result) => {
-      const petName = result.name;
-      // const petAge = result.age;
-      // const petSpecies = result.species;
-
-      const petHTML = `
-      <article class="pet-list__item">
-            <div>
-                <img src="../img/pet-thumb__result-list.png" alt="mascota posando">
-                <div>
-                    <p>${petName}</p>
-                    <span>en Villa Adela</span>
-                </div>
-            </div>
-            <button class="seeMorePet">Ver más</button>
-        </article>
-      `;
-
-      resultsContainer.innerHTML += petHTML; // Inject the HTML for each item
-    });
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
-fetchData();
