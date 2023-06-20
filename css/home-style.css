@@ -1591,3 +1591,12 @@ div:has(.donate-cta) {
     background-image: url("../img/paws-background__info-panel-large.svg");
   }
 }
+
+@media (min-width: 500px) {
+  main .hero {
+    background-image: url("/img/dog-photo__hero-section-large.svg");
+  }
+  .info-panel {
+    background-image: url("/img/paws-background__info-panel-large.svg");
+  }
+}
