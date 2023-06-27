@@ -1,3 +1,26 @@
+<?php
+if (isset($_POST)) {
+    $name = $_POST['pet-name'];
+    $pet_shelter = $_POST['pet-shelter'];
+}
+require "../conexion.php";
+$sql = "SELECT *
+FROM mascotas
+WHERE name = '$name' 
+ORDER BY id DESC;";
+$query = $pdo->prepare($sql);
+$query->execute();
+$row = $query->fetch(PDO::FETCH_ASSOC);
+$address = $row['pet_shelter'];
+$sql2 = "SELECT *
+FROM pet_shelter
+WHERE name_petShelter = '$address' 
+ORDER BY id DESC;";
+$query = $pdo->prepare($sql2);
+$query->execute();
+$row2 = $query->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,8 +58,8 @@
         <section class="visit-info-container">
             <article class="visit-info-title">
                 <h1>Programación de visita</h1>
-                <p class="">Te espero los días...</p>
-                <img src="../img/pet-thumb__visit-date.png" alt="mascota a ser visitada">
+                <p class=""><?php echo $row['name']; ?> te espera los días...</p>
+                <img src="../bd_img/<?php echo $row['photo'] ?>" alt="mascota a ser visitada">
             </article>
             <article class="available-dates">
                 <div class="available-dates__week">
@@ -52,10 +75,9 @@
                 <div class="shelter-location__address">
                     <img src="../img/gps-icon__visit-date.svg" alt="gps icon">
                     <div>
-                        <p>En: Albergue "Adogtivos"</p>
+                        <p>En: <?php echo $pet_shelter;?></p>
                         <p>
-                            El Alto, Avenida Buenos Aires
-                            Calle Francisco de Toledo #1381, Frente a la estación central grande
+                            <?php echo $row2['address'] ?>
                         </p>
                     </div>
                 </div>
@@ -83,9 +105,14 @@
                 <button>esta semana</button>
                 <button>la siguiente</button>
             </div> -->
-            <div class="results__cta">
-                <button id="confirmVisit">Confirmar visita</button>
-            </div>
+            <form action="visit-thanks.php" method="POST">
+                <!--input -->
+                <div class="results__cta">
+                    <input class="pet-profile__input" name="pet-shelter" value="<?php echo $row['pet_shelter'] ?>">
+                    <input class="pet-profile__input" type="text" name="pet-name" value="<?php echo $row['name'] ?>">
+                    <button type="submit" id="confirmVisit">Confirmar visita</button>
+                </div>
+            </form>
         </section>
 
     </main>
